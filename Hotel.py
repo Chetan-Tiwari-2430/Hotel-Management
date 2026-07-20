@@ -1,5 +1,5 @@
 class Hotel:
-    ac_room_available = [False,False,False,True,True]
+    ac_room_available = [False,False,False,False,False]
     non_ac_room_available = [False,True,True,True,False]
     
     # Here we create a method that checks the Ac rooms is available or not

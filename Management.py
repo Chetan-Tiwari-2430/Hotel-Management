@@ -1,8 +1,13 @@
+from Hotel import Hotel
 class Management:
+    ac_rooms_price = 1000
+    non_ac_rooms_price = 800
     cost = 0
     days = 0
     name = None
     age = None
+
+
     def user_interface(self):
         print("The Grand XYZ Hotel")
         print("1. Book Room")
@@ -15,19 +20,26 @@ class Management:
             case 2:
                 self.show_room_prices()
             case 0:
+                print("Thankyou For the Use")
                 return
             case _:
                 print("Enter only 0 to 2")
     
-
+    
 
 
     def book_room(self):
+
         print("1. For Ac rooms")
         print("2. For Non-Ac rooms")
         choice = int(input("Enter Your choice: "))
+
         if (choice in (1,2)):
             self.allocation(choice)
+    
+    def show_price(self):
+        print(f"Ac Rooms Price {self.ac_rooms_price}")
+        print(f"Non Ac Rooms Price {self.non_ac_rooms_price}")
         
     
     def allocation(self,choice):
@@ -36,25 +48,45 @@ class Management:
         else:
             self.non_ac_room_booking()
 
+    def check_room(self,number):
+        self.hotel = Hotel()
+        if number == 1:
+            result_1 = self.hotel.ac_room_availability_checker()
+            return result_1
+        else:
+            result_2 = self.hotel.non_ac_room_availability_checker()
+            return result_2
+
 
     def ac_room_booking(self):
-        self.name = input("Enter Your Name: ")
-        self.age = int(input("Enter Your Age: "))
-        self.days = int(input("How Many days you have to stay: "))
-        fair_for_one_day = 1000
-        print("Room Booked Successful")
-        self.cost =  int(self.days*fair_for_one_day)
-        self.bill()
+        flag = self.check_room(1)
+        if flag:
+            self.name = input("Enter Your Name: ")
+            self.age = int(input("Enter Your Age: "))
+            self.days = int(input("How Many days you have to stay: "))
+            print("Room Booked Successful")
+            self.cost =  int(self.days*self.ac_rooms_price)
+            self.bill()
+        else:
+            print("Soory to say ")
+            print("But")
+            print("Ac Rooms is not Available")
 
     def non_ac_room_booking(self):
-        self.name = input("Enter Your Name: ")
-        self.age = int(input("Enter Your Age: "))
-        self.days = int(input("How Many days you have to stay: "))
-        fair_for_one_day = 800
-        print("Room Booked Successful")
-        self.cost =  int(self.days*fair_for_one_day)
-        self.bill()
+        flag = self.check_room(2)
+        print(flag)
+        if flag:
 
+            self.name = input("Enter Your Name: ")
+            self.age = int(input("Enter Your Age: "))
+            self.days = int(input("How Many days you have to stay: "))
+            print("Room Booked Successful")
+            self.cost =  int(self.days*self.non_ac_rooms_price)
+            self.bill()
+        else:
+            print("Soory to say ")
+            print("But")
+            print("Ac Rooms is not Available")
 
     def bill(self):
         one_day_cost = self.cost/self.days
