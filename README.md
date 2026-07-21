@@ -1,2 +1,2 @@
 # Hotel-Management
-This is my intial project of the python 
+This is my initial project of the python 
