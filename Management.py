@@ -13,7 +13,12 @@ class Management:
         print("1. Book Room")
         print("2. Show the Price")
         print("0. Exit")
-        choice = int(input("Enter Your Choice: "))
+        while True:
+            try:
+                choice = int(input("Enter Your Choice: "))
+                break
+            except:
+                print("Enter Only the Number")
         match choice:
             case 1:
                 self.book_room()
@@ -32,7 +37,15 @@ class Management:
 
         print("1. For Ac rooms")
         print("2. For Non-Ac rooms")
-        choice = int(input("Enter Your choice: "))
+        while True:
+            try:
+                choice = int(input("Enter Your choice: "))
+                if choice in (1,2):
+                    break
+                else:
+                    print("Enter Only 1 and 2")
+            except:
+                print("Enter only Number's ")
 
         if (choice in (1,2)):
             self.allocation(choice)
@@ -61,14 +74,19 @@ class Management:
     def ac_room_booking(self):
         flag = self.check_room(1)
         if flag:
-            self.name = input("Enter Your Name: ")
-            self.age = int(input("Enter Your Age: "))
-            self.days = int(input("How Many days you have to stay: "))
-            print("Room Booked Successful")
-            self.cost =  int(self.days*self.ac_rooms_price)
-            self.bill()
+            while True:
+                try:
+                    self.name = input("Enter Your Name: ")
+                    self.age = int(input("Enter Your Age: "))
+                    self.days = int(input("How Many days you have to stay: "))
+                    print("Room Booked Successful")
+                    self.cost =  int(self.days*self.ac_rooms_price)
+                    self.bill()
+                    break
+                except:
+                    print("Enter The Number of the age and days")
         else:
-            print("Soory to say ")
+            print("Sorry to say ")
             print("But")
             print("Ac Rooms is not Available")
 
@@ -76,15 +94,20 @@ class Management:
         flag = self.check_room(2)
         print(flag)
         if flag:
-
-            self.name = input("Enter Your Name: ")
-            self.age = int(input("Enter Your Age: "))
-            self.days = int(input("How Many days you have to stay: "))
-            print("Room Booked Successful")
-            self.cost =  int(self.days*self.non_ac_rooms_price)
-            self.bill()
+            while True:
+                try:
+                    self.name = input("Enter Your Name: ")
+                    self.age = int(input("Enter Your Age: "))
+                    self.days = int(input("How Many days you have to stay: "))
+                    print("Room Booked Successful")
+                    self.cost =  int(self.days*self.ac_rooms_price)
+                    self.bill()
+                    break
+                except:
+                    print("Enter The Number of the age and days")
+                    print("Plz Re-enter These information")
         else:
-            print("Soory to say ")
+            print("Sorry to say ")
             print("But")
             print("Ac Rooms is not Available")
 
