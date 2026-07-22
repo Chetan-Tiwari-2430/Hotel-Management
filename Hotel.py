@@ -20,6 +20,19 @@ class Hotel:
                 return True
         return False
 
+    def available_ac_rooms(self):
+        count = 0
+        for i in self.ac_room_available:
+            if i == True:
+                count += 1
+        return count
+    
+    def available_non_ac_rooms(self):
+        count = 0
+        for i in self.non_ac_room_available:
+            if True == i:
+                count += 1
+        return count
     
     
     # Check the Dates is  valid or not
