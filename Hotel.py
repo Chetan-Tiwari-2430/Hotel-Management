@@ -20,14 +20,7 @@ class Hotel:
                 return True
         return False
 
-    def available_rooms(self):
-        count = 0
-        length = len(self.ac_room_available) + len(self.non_ac_room_available)
-        for i in range(length):
-            if(True == i):
-                count += 1
-            
-        return count
+    
     
     # Check the Dates is  valid or not
     def is_date_valid(self,day,month,year):
