@@ -1,4 +1,6 @@
 class Hotel:
+    ac_room_numbers = [101,102,103,104,105]
+    non_ac_room_numbers = [201,202,203,204,205]
     ac_room_available = [False,False,False,False,False]
     non_ac_room_available = [False,True,True,True,False]
     
