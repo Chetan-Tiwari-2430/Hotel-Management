@@ -6,5 +6,5 @@ class Manager:
         available_non_ac_rooms = hotel.available_non_ac_rooms()
         print(f"Available Ac Rooms: {available_ac_rooms}")
         print(f"Available Non Ac Rooms: {available_non_ac_rooms}")
-        
 
+    
